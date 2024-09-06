@@ -87,18 +87,18 @@ export default function Profile() {
 
   return (
     <>
-      <div className="col-span-8 overflow-hidden rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow">
+      <div className="col-span-8 overflow-hidden px-4 rounded-xl sm:bg-gray-50 sm:px-8 sm:shadow dark:bg-[#242528] dark:text-light-color">
         <div className="pt-4">
           <h1 className="py-2 text-2xl font-semibold">Account settings</h1>
-          <p className="font- text-slate-600">
+          <p className="font- text-slate-600 dark:text-second-light-color">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </p>
         </div>
         <hr className="mt-4 mb-8" />
         <p className="py-2 text-xl font-semibold">Email Address</p>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-gray-600">
-            Your email address is <strong>{userEmail}</strong>
+          <p className="text-gray-600 dark:text-second-light-color">
+            Your email address is: <strong className="after:contet-[''] after:absolute relative after:bg-sky-600 after:h-[.1rem] after:start-0 after:-bottom-1 after:end-0">{userEmail}</strong>
           </p>
           <button className="inline-flex text-sm font-semibold text-blue-600 underline decoration-2">
             Change

@@ -8,7 +8,7 @@ export default function LayoutSettings() {
   return (
     <>
       <div className="min-h-screen container-custom">
-        <h1 className="border-b pb-6 text-4xl font-semibold">Settings</h1>
+        <h1 className="border-b pb-6 text-4xl font-semibold dark:text-light-color">Settings</h1>
         <div className="grid grid-cols-8 pt-3 sm:grid-cols-10">
           <SideSetting />
 

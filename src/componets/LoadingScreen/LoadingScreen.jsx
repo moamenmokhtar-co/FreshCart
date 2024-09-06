@@ -7,7 +7,7 @@ export default function LoadingScreen() {
   return (
     <>
       <div className="loading min-h-96 flex items-center justify-center">
-        <i className="fas fa-cart-shopping fa-spin text-[6rem] text-green-color"></i>
+        <i className="fas fa-cart-shopping fa-spin text-[6rem] text-green-color dark:text-logo-color"></i>
       </div>
     </>
   );

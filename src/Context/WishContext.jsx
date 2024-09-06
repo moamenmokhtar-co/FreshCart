@@ -5,8 +5,10 @@ export let wishContext = createContext();
 export default function WishContextProvider({ children }) {
   const [wishArray, setWishArray] = useState([]);
   const [wishArrayList, setWishArrayList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   function getWishList() {
+    setIsLoading(true);
     axios
       .get(`https://ecommerce.routemisr.com/api/v1/wishlist`, {
         headers: {
@@ -15,17 +17,12 @@ export default function WishContextProvider({ children }) {
       })
       .then(({ data }) => {
         let apiWishArray = data.data;
-        apiWishArray.map((wishItem) =>
-          setWishArray((prevWishList) => [
-            ...new Set([...prevWishList, wishItem.id]),
-          ])
-        );
 
+        let wishArrayIds = new Set(apiWishArray.map((wishItem) => wishItem.id));
+        setWishArray([...wishArrayIds]);
         setWishArrayList(apiWishArray);
+        setIsLoading(false);
       });
-
-    console.log(wishArrayList);
-
   }
 
   useEffect(() => {
@@ -40,6 +37,7 @@ export default function WishContextProvider({ children }) {
         wishArrayList,
         setWishArrayList,
         getWishList,
+        isLoading,
       }}
     >
       {children}

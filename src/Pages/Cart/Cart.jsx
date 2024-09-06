@@ -70,8 +70,10 @@ export default function Cart() {
       ) : isEmpty ? (
         <CartIsEmpty />
       ) : (
-        <div className="font-sans max-w-4xl md:max-w-4xl lg:max-w-5xl  mx-auto p-4">
-          <h1 className="text-2xl font-extrabold text-gray-800">Your Cart</h1>
+        <div className="font-sans max-w-4xl md:max-w-4xl md:px-4 lg:max-w-5xl mx-auto">
+          <h1 className="text-2xl font-extrabold text-gray-800 dark:text-light-color">
+            Your Cart
+          </h1>
           <div className="grid lg:grid-cols-5 gap-4 mt-8">
             <div className="md:col-span-3 space-y-4">
               {cart?.data?.products.map((product, index) => (
@@ -183,17 +185,17 @@ export default function Cart() {
                 <img
                   src={Visa}
                   alt="card1"
-                  className="w-12 object-contain bg-[#fdf] rounded-lg"
+                  className="w-12 object-contain bg-gold-color rounded-lg"
                 />
                 <img
                   src={Master}
                   alt="card2"
-                  className="w-12 object-contain bg-[#fdf] rounded-lg"
+                  className="w-12 object-contain bg-gold-color rounded-lg"
                 />
                 <img
                   src={Apple}
                   alt="card3"
-                  className="w-12 object-contain bg-[#fdf] rounded-lg"
+                  className="w-12 object-contain bg-gold-color rounded-lg"
                 />
               </div>
             </div>

@@ -12,7 +12,7 @@ export default function OrdersEmpty() {
           <div>
             <img className="w-[28rem]" src={Empty} alt="" />
             <div>
-              <p className="text-center pt-8">There Is No Orders Here, Please Add Some Products</p>
+              <p className="text-center pt-8 dark:text-light-color">There Is No Orders Here, Please Add Some Products</p>
               <Link to={'/'} className="my-8 flex gap-2 w-full items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">Continue Shopping 😉</Link>
             </div>
           </div>

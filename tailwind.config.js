@@ -4,12 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        'logo-color': 'rgb(62,183,55)',
+        'back-dark-color': 'rgb(24,25,26)',
+        'logo-color': 'rgb(10, 173, 10)',
         'green-color': '#00462D',
-        'second-dark-color': '#1E1E20'
+        'second-dark-color': '#242528',
+        'light-color': '#fafafa',
+        'green-light-color': '#004d40',
+        'second-light-color': '#b4b4b4',
+        'gold-color': '#FFF37B',
+        'second-gold-color': '#E1F310',
       }
     },
   },
+  darkMode: 'class',
   plugins: [require('flowbite/plugin', '@tailwindcss/forms')],
 }
 

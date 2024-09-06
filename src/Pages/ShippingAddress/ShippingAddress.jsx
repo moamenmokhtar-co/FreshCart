@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { paymentContext } from "../../Context/PaymentContext";
 import { usePurchase } from "../../Context/PurchaseContext";
+import { toast } from "react-toastify";
 export default function ShippingAddress() {
   const [isLoading, setIsLoading] = useState(false);
   const { isOnlinePaymentMethoud } = useContext(paymentContext);
@@ -18,7 +19,7 @@ export default function ShippingAddress() {
 
   //*---------------------------------------- Yup Validation Auto
 
-  let validateYupSchema = Yup.object().shape({
+  let validationSchema = Yup.object().shape({
     details: Yup.string().required("Details Is Required"),
     phone: Yup.string().required("Phone Is Required"),
     city: Yup.string().required("City Is Required"),
@@ -26,7 +27,6 @@ export default function ShippingAddress() {
 
   function cheackOut(formValues) {
     setIsLoading(true);
-
     if (isOnlinePaymentMethoud) {
       axios
         .post(
@@ -42,10 +42,20 @@ export default function ShippingAddress() {
           }
         )
         .then(({ data }) => {
-          setIsLoading(false);
-          window.open(data.session.url);
+          if (data.status === "success") {
+            setIsLoading(false);
+            window.open(data.session.url);
+          }
         })
-        .catch(({ response: { data } }) => {
+        .catch((err) => {
+          if (err.message === "Network Error") {
+            toast.error(
+              "Network error: Please check your internet connection and try again."
+            );
+          } else {
+            toast.error(`This didn't work, ${err.response.data.message}`);
+          }
+
           setIsLoading(false);
         });
     } else {
@@ -60,11 +70,20 @@ export default function ShippingAddress() {
           }
         )
         .then(({ data }) => {
-          setIsLoading(false);
-          setHasPurchased(true)
-          navigate("/purchasedsuccessfully");
+          if (data.status === "success") {
+            setIsLoading(false);
+            setHasPurchased(true);
+            navigate("/purchasedsuccessfully");
+          }
         })
-        .catch(({ response: { data } }) => {
+        .catch((err) => {
+          if (err.message === "Network Error") {
+            toast.error(
+              "Network error: Please check your internet connection and try again."
+            );
+          } else {
+            toast.error(`This didn't work, ${err.response.data.message}`);
+          }
           setIsLoading(false);
         });
     }
@@ -75,7 +94,7 @@ export default function ShippingAddress() {
       phone: "",
       city: "",
     },
-    validationSchema: validateYupSchema,
+    validationSchema,
     onSubmit: cheackOut,
   });
 

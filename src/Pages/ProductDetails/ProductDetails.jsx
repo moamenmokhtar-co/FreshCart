@@ -132,14 +132,14 @@ export default function ProductDetails() {
               </div>
 
               <div className="lg:col-span-2">
-                <h2 className="text-2xl font-bold text-gray-800">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-light-color">
                   {details.title}
                 </h2>
                 <div className="flex flex-wrap gap-4 mt-4">
-                  <p className="text-gray-800 text-xl font-bold">
+                  <p className="text-gray-800 text-xl font-bold dark:text-light-color">
                     ${details.price}
                   </p>
-                  <p className="text-gray-800 text-xl">
+                  <p className="text-gray-800 text-xl dark:text-light-color">
                     <strike>$16</strike>{" "}
                     <span className="text-sm ml-1">Tax included</span>
                   </p>
@@ -159,9 +159,9 @@ export default function ProductDetails() {
                           key={index}
                           className={
                             fullStar
-                              ? "fas fa-star text-green-color"
+                              ? "fas fa-star text-green-color dark:text-green-light-color"
                               : halfStar
-                              ? "fas fa-star-half-alt text-green-color"
+                              ? "fas fa-star-half-alt text-green-color dark:text-green-light-color"
                               : "fas fa-star text-gray-200"
                           }
                         ></i>
@@ -170,7 +170,7 @@ export default function ProductDetails() {
                   </div>
 
                   <span className="px-2 ">
-                    <span className=" rounded bg-green-coltext-green-color text-black px-3 py-0.5 text-xs font-semibold">
+                    <span className=" rounded bg-green-coltext-green-color text-black px-3 py-0.5 text-xs font-semibold dark:text-gold-color">
                       {details.ratingsAverage}
                     </span>
                   </span>
@@ -178,7 +178,7 @@ export default function ProductDetails() {
 
                 <div className="mt-8">
                   <ul className="space-y-3 list-disc my-4 text-sm text-gray-800">
-                    <li className="text-gray-800 flex">
+                    <li className="text-gray-800 flex dark:text-light-color">
                       <span className="font-semibold px-2">Category :</span>
                       <p>{details.category?.name}</p>
                     </li>
@@ -186,21 +186,21 @@ export default function ProductDetails() {
                       <span className="font-semibold px-2">Sub Category :</span>
                       <p>{details.subcategory[0]?.name}</p>
                     </li> */}
-                    <li className="text-gray-800 flex">
+                    <li className="text-gray-800 flex dark:text-light-color">
                       <span className="font-semibold px-2">Brand :</span>
                       <p>{details.brand?.name}</p>
                     </li>
                   </ul>
-                  <h3 className="text-xl font-bold text-gray-800">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-light-color">
                     Description
                   </h3>
-                  <p>{details.description}</p>
+                  <p className="dark:text-light-color dark:font-extralight">{details.description}</p>
                 </div>
 
                 <button
                   onClick={() => addProductToCart(details.id, setCartCount)}
                   type="button"
-                  className="flex gap-2 items-center justify-center w-full mt-8 px-6 py-3 border bg-green-color text-white text-sm font-semibold rounded-md"
+                  className="flex gap-2 items-center justify-center w-full mt-8 px-6 py-3 border bg-green-color dark:bg-green-light-color text-white text-sm font-semibold rounded-md"
                 >
                   <i className="fas fa-cart-plus"></i>
 
@@ -214,9 +214,9 @@ export default function ProductDetails() {
 
       {/* ------------- Related Products ------------- */}
 
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <div className="bg-light-color mt-6 rounded-xl mx-auto">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-green-color">
             Customers also purchased
           </h2>
           <Slider {...settingsCat}>

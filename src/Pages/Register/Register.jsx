@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { UserContext } from "../../Context/UserContext";
 import toast from "react-hot-toast";
 
+
 export default function Register() {
   const [respnseMsg, setRespnseMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -130,9 +131,11 @@ export default function Register() {
 
   return (
     <>
-      <div className="container-custom px-8 md:px-0">
+      <div className="container-custom px-8 md:px-0 relative">
         <form onSubmit={formik.handleSubmit} className="max-w-xl mx-auto">
-          <h2 className="text-3xl py-6 text-green-600 font-bold">Register</h2>
+          <h2 className="text-3xl py-6 text-green-600 font-bold dark:text-logo-color">
+            Register
+          </h2>
           <div className="relative z-0 w-full group min-h-20">
             <input
               type="text"
@@ -143,6 +146,7 @@ export default function Register() {
               value={formik.values.name}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="username"
             />
             <label
               htmlFor="floating_name"
@@ -169,6 +173,7 @@ export default function Register() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="email"
             />
             <label
               htmlFor="floating_email"
@@ -195,6 +200,7 @@ export default function Register() {
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="new-password"
             />
             <label
               htmlFor="floating_password"
@@ -221,6 +227,7 @@ export default function Register() {
               value={formik.values.rePassword}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="new-password"
             />
             <label
               htmlFor="floating_rePassword"
@@ -247,6 +254,7 @@ export default function Register() {
               value={formik.values.phone}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="tel"
             />
             <label
               htmlFor="floating_phone"
@@ -285,9 +293,9 @@ export default function Register() {
           >
             {isLoading && <i className="fas fa-spinner fa-spin me-2"></i>}Submit
           </button>
-          <div className="border-b border-b-orange-300/35 w-fit hover:border-b-sky-400">
+          <div className="border-b dark:text-indigo-400 border-b-orange-300/35 w-fit hover:border-b-sky-400">
             <i className="fa-solid fa-arrow-right-to-bracket me-1 "></i>
-            <Link to="/login" className="font-bold">
+            <Link to="/login" className="font-bold ">
               Already have an account ?
             </Link>
           </div>

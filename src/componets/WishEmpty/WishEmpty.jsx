@@ -12,7 +12,7 @@ export default function WishEmpty() {
           <div>
             <img className="w-[28rem]" src={Empty} alt="" />
             <div>
-              <p className="text-center pt-8">
+              <p className="text-center pt-8 dark:text-light-color">
                 There Is No Wish List Here, Please Add Some Products
               </p>
               <Link

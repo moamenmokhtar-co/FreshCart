@@ -115,7 +115,7 @@ export default function Forgot() {
             onSubmit={formikForgot.handleSubmit}
             className="max-w-xl mx-auto"
           >
-            <h2 className="text-3xl py-6 text-green-color font-bold">
+            <h2 className="text-3xl py-6 text-green-color dark:text-logo-color font-bold">
               Enter Your Email
             </h2>
 
@@ -170,7 +170,7 @@ export default function Forgot() {
             onSubmit={formikResetCode.handleSubmit}
             className="max-w-xl mx-auto"
           >
-            <h2 className="text-3xl py-6 text-green-color font-bold">
+            <h2 className="text-3xl py-6 text-green-color dark:text-logo-color font-bold">
               Type The Code, Please
             </h2>
 

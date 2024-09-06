@@ -33,6 +33,7 @@ import LayoutSettings from "./Pages/Settings/LayoutSettings";
 import Profile from "./Pages/Settings/Account/Account";
 import DeveloperInfo from "./Pages/Settings/DeveloperInfo/DeveloperInfo";
 import { Offline } from "react-detect-offline";
+import DarkModeProvider from "./Context/DarkModeContext";
 function App() {
   const requestQuery = new QueryClient();
 
@@ -188,26 +189,29 @@ function App() {
               <CartContextProvider>
                 <WishContextProvider>
                   <ResetProvider>
-                    <RouterProvider router={x}></RouterProvider>
-                    <Toaster position="top-center" reverseOrder={false} />
-                    <ToastContainer
-                      position="top-right"
-                      autoClose={5000}
-                      hideProgressBar
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                      theme="colored"
-                      transition:Bounce
-                    />
-                    <Offline>
-                      <div className="fixed start-4 bottom-4 p-4 bg-[#E3E3E3] rounded-md">
-                      You are offline. Some functionality may be unavailable.
-                      </div>
-                    </Offline>
+                    <DarkModeProvider>
+                      <RouterProvider router={x}></RouterProvider>
+                      <Toaster position="top-center" reverseOrder={false} />
+                      <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="colored"
+                        transition:Bounce
+                      />
+                      <Offline>
+                        <div className="fixed start-4 bottom-4 p-4 bg-[#E3E3E3] rounded-md">
+                          You are offline. Some functionality may be
+                          unavailable.
+                        </div>
+                      </Offline>
+                    </DarkModeProvider>
                   </ResetProvider>
                 </WishContextProvider>
               </CartContextProvider>

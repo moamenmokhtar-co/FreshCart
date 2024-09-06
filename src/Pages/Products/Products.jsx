@@ -51,7 +51,7 @@ export default function Products() {
         className={`container-custom items-center justify-center ${
           isLoading
             ? ""
-            : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+            : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 dark:gap-6"
         }`}
       >
         {data?.data.data

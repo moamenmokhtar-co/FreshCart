@@ -117,7 +117,7 @@ export default function Login() {
     <>
       <div className="container-custom">
         <form onSubmit={formik.handleSubmit} className="max-w-xl mx-auto">
-          <h2 className="text-3xl py-6 text-green-color font-bold">Login</h2>
+          <h2 className="text-3xl py-6 text-green-color dark:text-logo-color font-bold">Login</h2>
 
           <div className="relative z-0 w-full group min-h-20">
             <input
@@ -129,6 +129,7 @@ export default function Login() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="email"
             />
             <label
               htmlFor="floating_email"
@@ -155,6 +156,7 @@ export default function Login() {
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              autoComplete="current-password"
             />
             <label
               htmlFor="floating_password"
@@ -200,7 +202,7 @@ export default function Login() {
           >
             {isLoading && <i className="fas fa-spinner fa-spin me-2"></i>}Login
           </button>
-          <div className="border-b border-b-orange-300/35 w-fit hover:border-b-sky-400">
+          <div className="border-b dark:text-indigo-400 border-b-orange-300/35 w-fit hover:border-b-sky-400">
             <i className="fa-solid fa-arrow-right-to-bracket me-1 "></i>
             <Link to="/register" className="font-bold">
               Create An Account

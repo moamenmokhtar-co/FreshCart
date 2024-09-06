@@ -6,13 +6,14 @@ import { UserContext } from "./UserContext";
 export const CartContxet = createContext();
 
 export default function CartContextProvider({ children }) {
-  const [cartCount, setCartCount] = useState(null);
+  const { userLogin } = useContext(UserContext);
 
-  // const { userLogin } = useContext(UserContext);
+  const [cartCount, setCartCount] = useState(null);
+  const [isCartCountLoading, setIsCartCountLoading] = useState(true);
 
   useEffect(() => {
-    getCartCount();
-  }, [cartCount]);
+    userLogin && getCartCount();
+  }, [userLogin]);
 
   // let { cartId } = useParams();
 
@@ -24,7 +25,8 @@ export default function CartContextProvider({ children }) {
         },
       })
       .then(({ data }) => setCartCount(data.numOfCartItems))
-      .catch(() => setCartCount(0));
+      .catch(() => setCartCount(0))
+      .finally(()=>setIsCartCountLoading(false));
   }
 
   // function cheackOut(formValues) {
@@ -52,7 +54,7 @@ export default function CartContextProvider({ children }) {
   //     });
   // }
   return (
-    <CartContxet.Provider value={{ cartCount, setCartCount }}>
+    <CartContxet.Provider value={{ cartCount, setCartCount , isCartCountLoading }}>
       {children}
     </CartContxet.Provider>
   );

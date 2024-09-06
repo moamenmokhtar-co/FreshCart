@@ -16,24 +16,23 @@ export default function DeveloperInfo() {
           />
         </div>
         <div className="">
-          <p className="text-xl font-medium text-gray-700">Moamen Mokhtar</p>
-          <p className="mb-4 text-sm font-medium text-gray-500">
+          <p className="text-xl font-medium text-gray-700 dark:text-light-color">Moamen Mokhtar</p>
+          <p className="mb-4 text-sm font-medium text-gray-500 dark:text-second-light-color">
             Frontend Developer
           </p>
-          <div className="flex space-x-2">
-            <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Projects</p>
+          <div className="grid grid-cols-3 justify-between gap-2 text-center">
+            <div className="col-span-1 rounded-xl bg-gray-100 px-2 py-2">
+              <p className="text-sm font-medium text-gray-500 text-[.8rem] md:text-[1rem]">Projects</p>
               <p className="text-3xl font-medium text-gray-600">+25</p>
             </div>
-            <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Experience</p>
+            <div className="col-span-1 rounded-xl bg-gray-100 px-2 py-2">
+              <p className="text-sm font-medium text-gray-500 text-[.8rem] md:text-[1rem]">Experience</p>
               <p className="text-3xl font-medium text-gray-600">1</p>
             </div>
-            <div className="flex flex-col items-center rounded-xl bg-gray-100 px-4 py-2">
-              <p className="text-sm font-medium text-gray-500">Technologies</p>
-              <p className="text-3xl font-medium text-gray-600">+10</p>
+            <div className="col-span-1 rounded-xl bg-gray-100 px-2 py-2">
+              <p className="text-sm font-medium text-gray-500 text-[.8rem] md:text-[1rem]">Technologies</p>
+              <p className="text-3xl font-medium text-gray-600">+20</p>
             </div>
-            <div className=""></div>
           </div>
           <div className="mb-3"></div>
           <div className="flex space-x-2">
